@@ -8,7 +8,7 @@ const styles = {
 function PokeImage(props) {
 	return (
 		<div>
-			<img src={props.imageURL} style={styles} />
+			<img src={props.imageURL} alt={props.key} style={styles} />
 		</div>
 	)
 }
