@@ -25,7 +25,9 @@ class App extends React.Component {
 		copy.loading = true
 		this.setState(copy)
 		event.preventDefault()
-		fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.value}`)
+		fetch(
+			`https://pokeapi.co/api/v2/pokemon/${this.state.value.toLowerCase()}`
+		)
 			.then(response => response.json())
 			.then(data =>
 				this.setState({
