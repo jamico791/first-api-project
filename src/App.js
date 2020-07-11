@@ -1,7 +1,6 @@
 import React from 'react'
 import PokeImage from './components/PokeImage'
 import PokeForm from './components/PokeForm'
-import './App.css'
 
 class App extends React.Component {
 	constructor(props) {
@@ -22,6 +21,9 @@ class App extends React.Component {
 	}
 
 	handleSubmit(event) {
+		const copy = { ...this.state }
+		copy.loading = true
+		this.setState(copy)
 		event.preventDefault()
 		fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.value}`)
 			.then(response => response.json())
@@ -52,7 +54,7 @@ class App extends React.Component {
 					onChange={this.handleChange}
 					onSubmit={this.handleSubmit}
 				/>
-				{imageComponents}
+				{this.state.loading ? 'loading...' : imageComponents}
 			</div>
 		)
 	}
