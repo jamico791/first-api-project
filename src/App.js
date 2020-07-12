@@ -15,15 +15,15 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const copy = { ...this.state };
-    copy.value = event.target.value;
-    this.setState(copy);
+	this.setState({
+		value: event.target.value
+	})
   }
 
   handleSubmit(event) {
-    const copy = { ...this.state };
-    copy.loading = true;
-    this.setState(copy);
+	this.setState({
+		loading: true
+	})
     event.preventDefault();
     fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.value.toLowerCase()}`)
       .then((response) => response.json())
