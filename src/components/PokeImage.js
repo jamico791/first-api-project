@@ -6,11 +6,7 @@ const styles = {
 }
 
 function PokeImage(props) {
-	return (
-		<div>
-			<img src={props.imageURL} alt={props.key} style={styles} />
-		</div>
-	)
+	return <img src={props.imageURL} alt={props.key} style={styles} />
 }
 
 export default PokeImage
